@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Post - Data Association</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-zinc-900 text-white p-4 sm:p-6">
+      <!-- Logout Button -->
+      <div class="flex justify-end">
+        <a href="/logout" class="text-sm bg-red-500 hover:bg-red-600 transition-colors rounded-md px-4 py-2">
+          Logout
+        </a>
+      </div>
+
+      <!-- Heading -->
+      <h2 class="text-2xl font-semibold mt-4 mb-2">Edit Your Post 📝</h2>
+      <p class="mb-6 text-sm text-zinc-400">Update the content and save your changes below.</p>
+
+      <!-- Edit Post Form -->
+      <form action="/update/<%= post._id %>" method="post" class="space-y-4 mb-10">
+        <textarea
+          name="content"
+          rows="5"
+          class="w-full sm:w-2/3 lg:w-1/2 p-3 bg-transparent border-2 border-zinc-800 rounded-md outline-none resize-none placeholder-zinc-500 focus:border-yellow-400"
+          placeholder="What's on your mind?"
+          required
+        ><%= post.content.trim() %></textarea>
+
+        <input
+          type="submit"
+          value="Update Post"
+          class="w-full block sm:w-40 px-4 py-2 bg-yellow-500 text-black hover:bg-yellow-600 rounded-md cursor-pointer transition-colors"
+        />
+      </form>
+    </div>
+  </body>
+</html>
